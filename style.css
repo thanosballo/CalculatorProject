@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e5e5;
+}
+.container {
+  background-color: #a8b0b2;
+  height: 800px;
+  width: 600px;
+  border-radius: 1rem;
+  border: 2px solid #99a3a3;
+}
+.wrapper {
+  padding: 1rem;
+}
