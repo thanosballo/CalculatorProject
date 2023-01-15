@@ -11,7 +11,21 @@ function divide(a,b){
     return a/b;
 }
 function operate(a,b,code){
-
+    switch (code){
+        case "+":result=add(a,b);break;
+        case "-":result=substract(a,b);break;
+        case "*":result=multiply(a,b);break;
+        case "/":result=divide(a,b);break;
+    }
+    return result;
+}
+function clearAll(){
+string="";
+a="";
+b="";
+sign="";
+screen.textContent="";
+console.log(a,b,string);
 }
 
 
@@ -27,26 +41,26 @@ buttons.forEach(button=>{
         if (button.classList.contains("num")){
             string=`${string}${button.dataset.num}`;
             console.log(string);
+            console.log(a,b);
+            screen.textContent=string;
         }
         else if (button.classList.contains("icons")){
             sign=button.dataset.sign;
             if (a===""){
             a=parseInt(string);
             string="";
-            }else {
-            b=parseInt(string);
-            string="";
-            console.log(b);
             }
-            console.log(typeof(a),a,b,sign);
         }else if (button.classList.contains("equal")){
-            switch (sign){
-                case "+":result=add(a,b);break;
-                case "-":result=substract(a,b);break;
-                case "*":result=multiply(a,b);break;
-                case "/":result=divide(a,b);break;
-            }
-            console.log(result,sign);
+                if(a!=""){            
+                b=parseInt(string);
+                string="";
+                console.log(b);
+                }
+                a=operate(a,b,sign);
+                screen.textContent=a;
+        }else 
+        if (button.classList.contains("clear")){
+            clearAll();
         }
     }
         )})
